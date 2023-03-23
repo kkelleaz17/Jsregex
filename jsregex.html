@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
+  </style>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0px;
+    }
+    form{
+        width: 350px;
+    }
+    fieldset{
+        padding: 20px;  
+    }
+    input[type=text], textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Almarai', sans-serif;
+}
+input[type=submit],input[type=reset]{
+height: 30px;
+width: 80px;
+background-color: rgb(26, 105, 26);
+color: white;
+font-size: 20px;
+font-family: 'Almarai', sans-serif;
+}
+</style>
+
+<body>
+    <form>
+        <fieldset>
+        <label for="name">Name:</label>
+        <input id="name" required type="text" pattern="[A-Za-z]{3,16}"/>
+        <br>
+        <label for="email">Email:</label>
+        <input id="email" required type="text" pattern="[A-Za-z]@[a-z]^{3}.[a-z]^{3}"/>
+        <br>
+        <label for="comments">Comments:</label>
+        <textarea id="comments" type="text" required></textarea>
+        <br>
+        <input type="submit" id="submit" onclick="Check(event)"/>
+        <input type="reset" />
+    </fieldset>
+    </form>
+</body>
+<script>
+    const Name = document.getElementById('name').value
+    const email = document.getElementById('email').value
+    const comments = document.getElementById('comments').value
+function Check(e){
+    if(HasSpaces(Name) === false || HasSpaces(email) === false || HasSpaces(comments) === false){
+        e.preventDefault();
+        alert('Error');
+    }
+
+}
+function HasSpaces(str){
+    console.log(str)
+if(str.trim().length === 0){
+    return true
+}else{
+    return false;
+}
+}
+
+
+</script>
+</html>
